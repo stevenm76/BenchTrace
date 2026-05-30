@@ -1,0 +1,343 @@
+{
+  "schema_version": "benchtrace.share.v1",
+  "trace": {
+    "name": "Example trace bundle bundled with the BenchTrace repo. Illustrates the layout of a native benchmark run folder.",
+    "created_at": "2026-05-23T22:31:27.432Z",
+    "tags": [
+      "benchtrace-native",
+      "BT-SERVE-001",
+      "example"
+    ],
+    "fingerprint": "a23298c2a2bd5aa3"
+  },
+  "hardware": {
+    "cpu": "AMD Ryzen 7 9800X3D 8-Core Processor",
+    "ram_gb": 30,
+    "motherboard": null,
+    "chipset": null,
+    "storage": null,
+    "os": "Ubuntu 26.04 LTS",
+    "kernel": "7.0.0-15-generic",
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 5060 Ti",
+        "vram_gb": 15.9,
+        "pcie_generation": null,
+        "pcie_width": null
+      },
+      {
+        "name": "NVIDIA GeForce RTX 5060 Ti",
+        "vram_gb": 15.9,
+        "pcie_generation": null,
+        "pcie_width": null
+      }
+    ],
+    "driver_version": "595.71.05",
+    "cuda_version": "13.2",
+    "rocm_version": null,
+    "container_runtime": null,
+    "container_image": null
+  },
+  "model": {
+    "name": "meta-llama/Llama-3.1-8B-Instruct",
+    "provider": null,
+    "repo_or_path": "meta-llama/Llama-3.1-8B-Instruct",
+    "architecture": null,
+    "dense_or_moe": null,
+    "parameter_count": null,
+    "active_parameter_count": null,
+    "quantization": null,
+    "precision": null,
+    "format": null,
+    "tokenizer": null,
+    "claimed_context_length": null,
+    "modality": "text",
+    "capabilities": [],
+    "license": null,
+    "model_hash": null
+  },
+  "loader": {
+    "name": "vLLM",
+    "version": "0.13.0",
+    "openai_compatible": true,
+    "launch_command": "# Example: the command that started the OpenAI-compatible server.\n# Captured by hand and passed to benchtrace via --launch-command-file.\nvllm serve meta-llama/Llama-3.1-8B-Instruct \\\n  --max-model-len 32768 \\\n  --gpu-memory-utilization 0.92",
+    "environment_variables": {},
+    "environment": {
+      "tensor_parallel_size": null,
+      "pipeline_parallel_size": null,
+      "data_parallel_size": null,
+      "kv_cache_dtype": null,
+      "gpu_memory_utilization": null,
+      "max_model_len": null,
+      "flash_attention": null,
+      "speculative_decoding": null,
+      "draft_model": null,
+      "mtp_enabled": null,
+      "chunked_prefill": null,
+      "prefix_caching": null,
+      "cpu_offload": null,
+      "gpu_residency": null
+    }
+  },
+  "benchmark": {
+    "tool": "benchtrace",
+    "tool_version": "0.1.0",
+    "command": "npx benchtrace bench serve serve --base-url http://localhost:8000 --model meta-llama/Llama-3.1-8B-Instruct --streams 1,2,4,8 --num-prompts 8 --engine-name vLLM --engine-version 0.13.0 --launch-command-file /tmp/example-server-command.txt --out ./example-imports/benchtrace-run",
+    "dataset": "synthetic",
+    "prompt_source": "mulberry32(seed=42)",
+    "workload_type": "serving",
+    "input_length": 512,
+    "output_length": 128,
+    "num_prompts": 8,
+    "concurrency": 8,
+    "request_rate": null,
+    "concurrency_strategy": "max_valid_concurrency",
+    "warmup_runs": 1,
+    "measurement_duration_seconds": 4.597304396,
+    "random_seed": 42,
+    "streaming_enabled": true,
+    "endpoint": "http://<ip_address>:40583/v1/chat/completions",
+    "ttft_sla_ms": 5000,
+    "tpot_sla_ms": 100
+  },
+  "benchmark_profile": {
+    "profile_id": "BT-SERVE-001",
+    "profile_version": "1.0",
+    "purpose": "Measures max valid concurrency under SLA. Prioritizes max valid concurrency, throughput at that concurrency, TTFT/TPOT SLAs, and failure rate.",
+    "required_metrics": [
+      "max_valid_concurrency",
+      "output_tokens_per_second",
+      "p95_ttft_ms",
+      "p95_tpot_ms",
+      "failure_rate"
+    ],
+    "optional_metrics": [
+      "requests_per_second",
+      "p99_ttft_ms",
+      "p99_tpot_ms"
+    ],
+    "compatible_engines": [
+      "vllm",
+      "sglang",
+      "generic_openai"
+    ],
+    "comparability_notes": "Comparable when SLA thresholds and input/output lengths match."
+  },
+  "results": {
+    "best_output_tokens_per_second": 524.7699483981893,
+    "best_total_tokens_per_second": 2204.0337832723953,
+    "prefill_tokens_per_second": null,
+    "requests_per_second": 26.238497419909464,
+    "max_valid_concurrency": 8,
+    "p50_ttft_ms": 60.86543399999982,
+    "p95_ttft_ms": 61.95582584999957,
+    "p99_ttft_ms": 61.97912436999967,
+    "p50_tpot_ms": 12.10817021052631,
+    "p95_tpot_ms": 12.136992844736854,
+    "p99_tpot_ms": 12.147242568947384,
+    "p50_itl_ms": 12.236462500000016,
+    "p95_itl_ms": 12.34497249999995,
+    "p99_itl_ms": 12.59948799999989,
+    "p50_e2e_latency_ms": 303.3870545,
+    "p95_e2e_latency_ms": 304.05826205000005,
+    "p99_e2e_latency_ms": 304.27145321000006,
+    "peak_vram_gb": null,
+    "average_vram_gb": null,
+    "peak_ram_gb": null,
+    "average_ram_gb": null,
+    "gpu_utilization_avg": null,
+    "gpu_utilization_peak": null,
+    "cpu_utilization_avg": null,
+    "cpu_utilization_peak": null,
+    "power_draw_watts_avg": null,
+    "power_draw_watts_peak": null,
+    "gpu_temperature_avg": null,
+    "gpu_temperature_peak": null,
+    "tokens_per_watt": null,
+    "tokens_per_dollar": null,
+    "cost_per_1m_generated_tokens": null,
+    "cost_per_1m_total_tokens": null,
+    "successful_requests": 32,
+    "failed_requests": null,
+    "failure_rate": 0
+  },
+  "metric_definitions": [
+    {
+      "normalized_metric_name": "output_tokens_per_second",
+      "raw_metric_name": "sum(completion_tokens) / wall_clock_seconds",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Sum of completion tokens across successful requests at this concurrency, divided by the wall-clock duration of the level.",
+      "aggregation_method": "sum_over_wallclock",
+      "percentile": null,
+      "notes": "at concurrency=1"
+    },
+    {
+      "normalized_metric_name": "p95_ttft_ms",
+      "raw_metric_name": "p95(first_token_ms - request_start_ms)",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Time to first generated token, 95th percentile.",
+      "aggregation_method": "percentile",
+      "percentile": 95,
+      "notes": "at concurrency=1"
+    },
+    {
+      "normalized_metric_name": "p95_tpot_ms",
+      "raw_metric_name": "p95(mean(inter_token_latency_ms))",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Time per output token after the first, mean over each request, 95th percentile.",
+      "aggregation_method": "percentile",
+      "percentile": 95,
+      "notes": "at concurrency=1"
+    },
+    {
+      "normalized_metric_name": "output_tokens_per_second",
+      "raw_metric_name": "sum(completion_tokens) / wall_clock_seconds",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Sum of completion tokens across successful requests at this concurrency, divided by the wall-clock duration of the level.",
+      "aggregation_method": "sum_over_wallclock",
+      "percentile": null,
+      "notes": "at concurrency=2"
+    },
+    {
+      "normalized_metric_name": "p95_ttft_ms",
+      "raw_metric_name": "p95(first_token_ms - request_start_ms)",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Time to first generated token, 95th percentile.",
+      "aggregation_method": "percentile",
+      "percentile": 95,
+      "notes": "at concurrency=2"
+    },
+    {
+      "normalized_metric_name": "p95_tpot_ms",
+      "raw_metric_name": "p95(mean(inter_token_latency_ms))",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Time per output token after the first, mean over each request, 95th percentile.",
+      "aggregation_method": "percentile",
+      "percentile": 95,
+      "notes": "at concurrency=2"
+    },
+    {
+      "normalized_metric_name": "output_tokens_per_second",
+      "raw_metric_name": "sum(completion_tokens) / wall_clock_seconds",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Sum of completion tokens across successful requests at this concurrency, divided by the wall-clock duration of the level.",
+      "aggregation_method": "sum_over_wallclock",
+      "percentile": null,
+      "notes": "at concurrency=4"
+    },
+    {
+      "normalized_metric_name": "p95_ttft_ms",
+      "raw_metric_name": "p95(first_token_ms - request_start_ms)",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Time to first generated token, 95th percentile.",
+      "aggregation_method": "percentile",
+      "percentile": 95,
+      "notes": "at concurrency=4"
+    },
+    {
+      "normalized_metric_name": "p95_tpot_ms",
+      "raw_metric_name": "p95(mean(inter_token_latency_ms))",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Time per output token after the first, mean over each request, 95th percentile.",
+      "aggregation_method": "percentile",
+      "percentile": 95,
+      "notes": "at concurrency=4"
+    },
+    {
+      "normalized_metric_name": "output_tokens_per_second",
+      "raw_metric_name": "sum(completion_tokens) / wall_clock_seconds",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Sum of completion tokens across successful requests at this concurrency, divided by the wall-clock duration of the level.",
+      "aggregation_method": "sum_over_wallclock",
+      "percentile": null,
+      "notes": "at concurrency=8"
+    },
+    {
+      "normalized_metric_name": "p95_ttft_ms",
+      "raw_metric_name": "p95(first_token_ms - request_start_ms)",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Time to first generated token, 95th percentile.",
+      "aggregation_method": "percentile",
+      "percentile": 95,
+      "notes": "at concurrency=8"
+    },
+    {
+      "normalized_metric_name": "p95_tpot_ms",
+      "raw_metric_name": "p95(mean(inter_token_latency_ms))",
+      "metric_source": "benchtrace",
+      "source_tool_version": "0.1.0",
+      "definition": "Time per output token after the first, mean over each request, 95th percentile.",
+      "aggregation_method": "percentile",
+      "percentile": 95,
+      "notes": "at concurrency=8"
+    }
+  ],
+  "cost": null,
+  "verification": {
+    "level": "strong",
+    "artifacts": [
+      {
+        "type": "raw_metrics",
+        "filename": "raw/per-request-results.jsonl",
+        "sha256": "e5fd78481658f0d0402d2302bca3e5ec8f24442e81d250c9ebc72381d85fd260",
+        "parser_status": "manual"
+      },
+      {
+        "type": "aggregate_metrics",
+        "filename": "raw/aggregate-results.json",
+        "sha256": "50750578632074e7e120927414033343cc081bbf67df42ef154014d76b5b1312",
+        "parser_status": "parsed"
+      },
+      {
+        "type": "benchmark_command",
+        "filename": "raw/benchmark-command.txt",
+        "sha256": "296db5df52284f7cbba766778185738dcb563298361431f674781daef092b534",
+        "parser_status": "manual"
+      },
+      {
+        "type": "launch_command",
+        "filename": "raw/launch-command.txt",
+        "sha256": "e209768889f8a1a180a8cc7cfb9928029a6e9e53adca2a0ba337c36712b914fb",
+        "parser_status": "manual"
+      },
+      {
+        "type": "hardware_snapshot",
+        "filename": "raw/hardware-snapshot-before.json",
+        "sha256": "20333d096ce6d307e4b398cbd3b7a726abe4113cfc3333de0513806efa72389a",
+        "parser_status": "manual"
+      },
+      {
+        "type": "hardware_snapshot",
+        "filename": "raw/hardware-snapshot-after.json",
+        "sha256": "20333d096ce6d307e4b398cbd3b7a726abe4113cfc3333de0513806efa72389a",
+        "parser_status": "manual"
+      },
+      {
+        "type": "nvidia_smi",
+        "filename": "raw/nvidia-smi-before.txt",
+        "sha256": "107b502e1140e0bd05876be864d672c5782401c15fc320f32eaaecd50c818d02",
+        "parser_status": "manual"
+      },
+      {
+        "type": "nvidia_smi",
+        "filename": "raw/nvidia-smi-after.txt",
+        "sha256": "4d468ed29b8eaf4ecd6a3b3bf2c4e858f3d9e1dd8bb2fb15aca4cdcd9ac23ef8",
+        "parser_status": "manual"
+      }
+    ],
+    "missing_fields": [],
+    "warnings": [],
+    "notes": null
+  }
+}

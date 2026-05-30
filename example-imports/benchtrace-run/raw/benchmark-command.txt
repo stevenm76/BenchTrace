@@ -1,0 +1,1 @@
+npx benchtrace bench serve --base-url http://localhost:8000 --model meta-llama/Llama-3.1-8B-Instruct --streams 1,2,4,8 --num-prompts 8 --engine-name vLLM --engine-version 0.13.0 --launch-command-file /tmp/example-server-command.txt --out ./example-imports/benchtrace-run

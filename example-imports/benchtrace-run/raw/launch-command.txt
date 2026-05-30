@@ -1,0 +1,5 @@
+# Example: the command that started the OpenAI-compatible server.
+# Captured by hand and passed to benchtrace via --launch-command-file.
+vllm serve meta-llama/Llama-3.1-8B-Instruct \
+  --max-model-len 32768 \
+  --gpu-memory-utilization 0.92

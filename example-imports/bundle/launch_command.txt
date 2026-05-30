@@ -1,0 +1,5 @@
+vllm serve Qwen/Qwen3-235B-A22B-Instruct-NVFP4 \
+  --tensor-parallel-size 2 \
+  --kv-cache-dtype fp8 \
+  --max-model-len 65536 \
+  --gpu-memory-utilization 0.92

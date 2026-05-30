@@ -1,0 +1,8 @@
+python -m vllm.entrypoints.cli.bench serve \
+  --model Qwen/Qwen3-235B-A22B-Instruct-NVFP4 \
+  --dataset-name random \
+  --random-input-len 1024 \
+  --random-output-len 256 \
+  --num-prompts 500 \
+  --max-concurrency 32 \
+  --save-result

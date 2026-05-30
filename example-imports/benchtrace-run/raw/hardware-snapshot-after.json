@@ -1,0 +1,19 @@
+{
+  "os": "Ubuntu 26.04 LTS",
+  "kernel": "7.0.0-15-generic",
+  "cpu": "AMD Ryzen 7 9800X3D 8-Core Processor",
+  "ramGb": 30,
+  "gpuModels": [
+    {
+      "name": "NVIDIA GeForce RTX 5060 Ti",
+      "vramGb": 15.9
+    },
+    {
+      "name": "NVIDIA GeForce RTX 5060 Ti",
+      "vramGb": 15.9
+    }
+  ],
+  "driverVersion": "595.71.05",
+  "cudaVersion": "13.2",
+  "containerRuntime": null
+}

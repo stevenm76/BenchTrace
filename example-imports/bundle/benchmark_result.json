@@ -1,0 +1,21 @@
+{
+  "backend": "vllm",
+  "vllm_version": "0.13.0",
+  "model_id": "Qwen/Qwen3-235B-A22B-Instruct-NVFP4",
+  "dataset_name": "random",
+  "random_input_len": 1024,
+  "random_output_len": 256,
+  "random_seed": 42,
+  "num_prompts": 500,
+  "max_concurrency": 32,
+  "duration": 184.2,
+  "completed": 500,
+  "request_throughput": 4.88,
+  "output_throughput": 1248.6,
+  "total_throughput": 5816.0,
+  "mean_ttft_ms": 482,
+  "median_ttft_ms": 482,
+  "percentiles_ttft_ms": [[50, 482], [95, 884], [99, 1042]],
+  "median_tpot_ms": 14.6,
+  "percentiles_tpot_ms": [[50, 14.6], [95, 22.4], [99, 28.8]]
+}

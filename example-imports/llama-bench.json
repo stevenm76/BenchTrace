@@ -1,0 +1,17 @@
+{
+  "build_commit": "9f8e7d6",
+  "model_filename": "Mistral-7B-Instruct-v0.3.Q8_0.gguf",
+  "model_type": "llama",
+  "model_size": 7768637440,
+  "quant": "Q8_0",
+  "n_prompt": 512,
+  "n_gen": 128,
+  "t_pp": 121.4,
+  "t_tg": 760.2,
+  "ts_pp": 4218.0,
+  "ts_tg": 168.4,
+  "n_threads": 12,
+  "n_gpu_layers": 999,
+  "flash_attn": true,
+  "n_runs": 5
+}
