@@ -10,10 +10,6 @@ the **"Report a vulnerability"** button under this repository's
 **Security** tab (Security → Advisories → Report a vulnerability). This
 opens a private advisory visible only to the maintainers.
 
-If you cannot use GitHub advisories, email the maintainer at the address
-listed on the repository's profile. Replace this with a real address
-before relying on it: `SECURITY_CONTACT_EMAIL` (e.g. `security@example.com`).
-
 Please include:
 
 - A description of the vulnerability and its impact.
