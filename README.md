@@ -60,7 +60,6 @@ CLI:
 | Adapter stubs — SGLang, Ollama, generic OpenAI | stub | [`src/lib/adapters/stubs.ts`](src/lib/adapters/stubs.ts) |
 | Example import payloads + a real native run | ✓ | [`example-imports/`](example-imports) |
 | Schema reference · native benchmark docs · import formats | ✓ | [`docs/`](docs) |
-| Original implementation plan | ✓ | [`docs/PLAN.md`](docs/PLAN.md) |
 
 ## Stack
 
@@ -333,5 +332,3 @@ Until engine launching arrives, the bundle path (`Trace Bundle`
 adapter) plus the native serve sweep cover the practical workflow:
 launch your server however you want, capture `launch_command.txt` +
 `nvidia-smi.txt` alongside the result, hand the folder to BenchTrace.
-
-See [`docs/PLAN.md`](docs/PLAN.md) for the original architecture plan.
