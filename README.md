@@ -8,6 +8,11 @@ performance traces.
 > A benchmark result is only useful if it's understandable, comparable,
 > and reproducible. `Qwen 35B — 175 tok/s` isn't.
 
+![BenchTrace dashboard](docs/dashboard.png)
+
+> The dashboard above is populated with **synthetic sample data**
+> (`npm run seed`) — not real measurements.
+
 BenchTrace can both **ingest** results from external tools (vLLM bench,
 llama-bench, hand-authored bundles) and **produce** its own — a native
 serve-sweep benchmark (`benchtrace bench serve`, profile **BT-SERVE-001**)
